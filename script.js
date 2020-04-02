@@ -14,7 +14,7 @@ $(document).ready(function () {
     }
     
 
-    let todaysDate = moment().format("MMMM Do YYYY, h:mm:ss a");
+    let todaysDate = moment().format("MMMM Do YYYY, h:mm a");
 
     let currentDayElement = $("#currentDay");
     currentDayElement.text(todaysDate);
@@ -104,8 +104,8 @@ $(document).ready(function () {
     if (time.isBetween(time2pm, time3pm)) {
 
         $("#hour9").attr("class", "form-control past");
+        $("#hour10").attr("class", "form-control past");
         $("#hour11").attr("class", "form-control past");
-        $("#eleven").attr("class", "form-control past");
         $("#hour12").attr("class", "form-control past");
         $("#hour13").attr("class", "form-control past");
         $("#hour14").attr("class", "form-control present");
