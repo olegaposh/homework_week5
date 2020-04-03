@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+// today's date and time
+
+let todaysDate = moment().format("MMMM Do YYYY, h:mm a");
+let currentDayElement = $("#currentDay");
+currentDayElement.text(todaysDate);
+let time = moment();
+
     //loop renders any previously stored input
     for (let i = 9; i < 18; i++) {
 
@@ -8,18 +15,18 @@ $(document).ready(function () {
             savedNote = localStorage.getItem(i);
             let noteLocation = document.querySelector("#hour" + i);
             noteLocation.value = savedNote;
-            console.log(savedNote);
+            
         }
 
     }
     
 
-    let todaysDate = moment().format("MMMM Do YYYY, h:mm a");
+    // clear button
 
-    let currentDayElement = $("#currentDay");
-    currentDayElement.text(todaysDate);
-
-    let time = moment();
+    $("#button").on("click", function(){
+        localStorage.clear();
+        location.reload();
+     });
 
 
 
@@ -163,8 +170,8 @@ $(document).ready(function () {
         //grab which button value they clicked
         let buttonValue = event.target.value;
         //grabbing the corresponding ID and store the input into note variable
-        //let note = $("#hour" + buttonValue).value; (this version doesnt work)
-        let note = document.querySelector("#hour" + buttonValue).value;
+        let note = $("#hour" + buttonValue).val(); 
+        //OR let note = document.querySelector("#hour" + buttonValue).value;
         //store the input in localstorage
         localStorage.setItem(buttonValue, note);
         
